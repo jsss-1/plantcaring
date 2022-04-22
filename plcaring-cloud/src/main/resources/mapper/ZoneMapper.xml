@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.acat.dao.mapper.ZoneMapper">
+
+    <resultMap id="BaseResultMap" type="com.acat.dao.pojo.Zone">
+            <result property="zoneId" column="zone_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="zoneName" column="zone_name" jdbcType="CHAR"/>
+            <result property="temp" column="temp" jdbcType="INTEGER"/>
+            <result property="hum" column="hum" jdbcType="INTEGER"/>
+            <result property="li" column="LI" jdbcType="INTEGER"/>
+            <result property="sh" column="SH" jdbcType="INTEGER"/>
+            <result property="manure" column="manure" jdbcType="INTEGER"/>
+            <result property="fld" column="fld" jdbcType="INTEGER"/>
+            <result property="seedDate" column="seed_date" jdbcType="DATE"/>
+            <result property="lastIrrigateDate" column="last_irrigate_date" jdbcType="DATE"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="remarks" column="remarks" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        zone_id,user_id,zone_name,
+        temp,hum,LI,
+        SH,manure,fld,
+        seed_date,last_irrigate_date,type,
+        remarks
+    </sql>
+<!--    Integer deleteByZoneId();-->
+    <update id="deleteByZoneId">
+        UPDATE plant_zone
+        set is_delete = 1
+        where zone_id = #{zoneId}
+    </update>
+    <!--    List<Zone> selectAll();-->
+    <select id="selectAll" resultType="com.acat.dao.pojo.Zone">
+        select * from plant_zone
+            where is_delete != 1
+    </select>
+</mapper>

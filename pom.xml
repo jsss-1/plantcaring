@@ -21,8 +21,7 @@
         <module>plcaring-tools</module>
         <module>plcaring-system</module>
         <module>plcaring-client</module>
-        <module>plant01</module>
-<!--        <module>plcaring-cloud</module>-->
+        <module>plcaring-cloud</module>
 
     </modules>
 

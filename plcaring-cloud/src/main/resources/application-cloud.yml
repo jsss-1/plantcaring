@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: lyl_plant
+    #数据库的配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/plantcaring?useUnicode=true&characterEncoding=UTF-8&serverTimeZone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000 #缓存时间 ms
+      cache-null-values: false #是否缓存空值
+  redis:
+      host: 127.0.0.1
+      password: redis
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      table-prefix: ms_
